@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class clientController extends Controller
+class ClientController extends Controller
 {
     //
     public function index(){
@@ -12,9 +12,9 @@ class clientController extends Controller
     }
 
     public function update(Request $request,$id){
-        $envio=\App\client::findOrFail($request->id);
-               
-        if($envio->save()){
+        $envio=\App\client::findOrFail($id);
+        $envio->update($request->all());
+        if($envio->update($request->all())){
             return 'Registro actualizado exitosamente';
         }else{
             return 'Intente nuevamente';

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfilesController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,4 +17,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('login', 'userController@login');
+Route::post('login', 'ProfilesController@login');
+Route::get('login', [ProfilesController::class,'all']);

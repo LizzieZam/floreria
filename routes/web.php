@@ -1,7 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfilesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('login', 'userController@login');
+//Route::post('login', 'ProfilesController@login');
+Route::get('/login', [ProfilesController::class,'all']);
